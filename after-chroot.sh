@@ -55,8 +55,14 @@ sed -i '/^#\[multilib\]$/ {N; s/#\[multilib\]\n#/\[multilib\]\n/}' /etc/pacman.c
 pacman -Sy
 
 echo 'Installing X-basic'
-pacman -S xorg-server xorg-server-common xf86-video-intel mesa lib32-mesa lightdm lightdm-gtk-greeter accountsservice xorg-xrandr arandr compton xorg-xprop xorg-drivers
+pacman -S xorg-server xorg-server-common xf86-video-intel mesa lib32-mesa gdm accountsservice xorg-xrandr arandr compton xorg-xprop xorg-drivers
 
+echo 'Installing NVIDIA'
+pacman -S nvidia nvidia-libgl mesa
+
+
+echo 'INSTALLING GDM'
+systemctl enable gdm
 # if lspci | grep --quiet NVIDIA
 # then
 #     echo 'Removing NOUVEAU driver and installing bumblebee'
@@ -67,8 +73,8 @@ pacman -S xorg-server xorg-server-common xf86-video-intel mesa lib32-mesa lightd
 #     systemctl enable bumblebeed.service
 # fi
 
-echo 'Enabling LightDM'
-systemctl enable lightdm
+# echo 'Enabling LightDM'
+# systemctl enable lightdm
 
 echo 'Installing network-basic'
 pacman -S networkmanager network-manager-applet networkmanager-openvpn  networkmanager-pptp dhclient
