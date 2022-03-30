@@ -1,4 +1,4 @@
-#! /bin/sh
+# ! /bin/sh
 
 echo 'Setting keyboard layout'
 loadkeys br-abnt2
@@ -14,8 +14,8 @@ fi
 echo 'Enable NTP'
 timedatectl set-ntp true
 
-echo 'Partitions'
-cfdisk /dev/sda
+# echo 'Partitions'
+# cfdisk /dev/sda
 
 echo 'Running pacstrap with base'
 pacstrap /mnt base base-devel linux linux-firmware
