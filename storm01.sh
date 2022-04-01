@@ -63,4 +63,14 @@ cd ..
 m -rf filestorm01
 rm filestorm01.zip
 
+echo $'\n ## Installing Google Chrome from AUR ## \n'
+cd /tmp
+git clone https://aur.archlinux.org/google-chrome.git
+cd google-chrome
+makepkg -si --skippgpcheck
+S
+
+
 echo $'\n ## Success Script Install ## \n'
+
+
